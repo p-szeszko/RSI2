@@ -14,21 +14,14 @@ public class klientRPC {
 		try {
 			System.out.println("Podaj ip serwera");
 			Scanner scan = new Scanner(System.in);
-			/*String ip =scan.nextLine();
+			String ip =scan.nextLine();
 			System.out.println("Podaj port serwera");
 			String port = scan.nextLine();
 			
-			XmlRpcClient srv = new XmlRpcClient(ip+":"+port);*/
-			XmlRpcClient srv = new XmlRpcClient("http://localhost:10008");
+			XmlRpcClient srv = new XmlRpcClient(ip+":"+port);
+			//XmlRpcClient srv = new XmlRpcClient("http://localhost:10001");
 			
-			AC cb = new AC();
-			String show="";
-			while(!show.equals("show"))
-			{
-				System.out.println("Podaj show");
-				show=scan.nextLine();
-				
-			}
+			AC cb = new AC();			
 			Object results = srv.execute("MojSerwer.shows",new Vector<Object>(0));
 			System.out.println(results);
 			System.out.println("Podaj nazwê funkcji:");
