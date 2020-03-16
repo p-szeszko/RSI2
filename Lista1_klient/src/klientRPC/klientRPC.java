@@ -12,13 +12,13 @@ public class klientRPC {
 		String func="";
 		String arg="";
 		try {
-			System.out.println("Podaj ip serwera");
+			System.out.println("Podaj ip lub dns serwera");
 			Scanner scan = new Scanner(System.in);
 			String ip =scan.nextLine();
 			System.out.println("Podaj port serwera");
 			String port = scan.nextLine();
 			
-			XmlRpcClient srv = new XmlRpcClient(ip+":"+port);
+			XmlRpcClient srv = new XmlRpcClient("http://"+ip+":"+port);
 			//XmlRpcClient srv = new XmlRpcClient("http://localhost:10001");
 			
 			AC cb = new AC();			
@@ -42,6 +42,7 @@ public class klientRPC {
 					params.addElement(args0[i]);
 			}
 			invoke(srv,"MojSerwer."+func,params,cb);
+			
 			}
 			
 			/*
@@ -60,6 +61,7 @@ public class klientRPC {
 			params2.addElement(new Integer(30));
 			srv.executeAsync("MojSerwer.addAsync", params2, cb);
 			*/
+			
 		}
 		catch(Exception exception)
 		{
