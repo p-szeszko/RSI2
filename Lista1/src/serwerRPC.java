@@ -1,8 +1,11 @@
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 import org.apache.xmlrpc.WebServer;
+
+
 public class serwerRPC {
 	public Integer echo(int x, int y)
 	{
@@ -32,7 +35,7 @@ public class serwerRPC {
 	
 	public String shows()
 	{
-		System.out.println("Print3");
+		
 		String ans="Dostepne funkcje:";
 		String l1= "\n 1. echo: dwa argumenty int, zwraca sume intow";
 		String l2= "\n2. execAsy: jeden argument int, asynchroniczna funkcja, usypia watek na czas argumentu w ms";
@@ -75,6 +78,12 @@ public class serwerRPC {
 					answer+=(a +"/"+b+"= " + z);
 				}
 				break;
+				case '%':
+				{
+					z=a%b;
+					answer+=(a +"%"+b+"= " + z);
+				}
+				break;
 				default :
 				{
 					answer+=("Nie obslugiwana operacja");
@@ -94,8 +103,19 @@ public class serwerRPC {
 		Locale lclang=new Locale(lang);
 		String dateinLang=localDate.format(DateTimeFormatter.ofPattern("EEEE, dd, MMMM, yyyy",lclang));
 		String line1=("Witaj "+name+" dzisiaj jest: \n" );
+		String ans=line1+dateinLang;
 		
-		return line1+dateinLang;
+		char[] ans2=ans.toCharArray();
+		for (int i=0;i<ans2.length;i++)
+		{
+			if(ans2[i]>127)
+			{
+				ans2[i]='?';
+			}
+		}
+		
+		ans=String.valueOf(ans2);
+		return ans;
 	}
 	
 	
@@ -155,7 +175,7 @@ public class serwerRPC {
 		// TODO Auto-generated method stub
 			try {
 				System.out.println("Startuje serwer XML-RPC...");
-				int port = 10008;
+				int port = 10001;
 				WebServer server = new WebServer(port);
 				server.addHandler("MojSerwer",new serwerRPC());
 				server.start();

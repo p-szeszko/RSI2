@@ -23,11 +23,13 @@ public class klientRPC {
 			
 			AC cb = new AC();			
 			Object results = srv.execute("MojSerwer.shows",new Vector<Object>(0));
+			
+			while(true) {
 			System.out.println(results);
 			System.out.println("Podaj nazwê funkcji:");
 			func=scan.nextLine();
 			System.out.println("Podaj argumenty po przecinku:");
-			arg=scan.next();
+			arg=scan.nextLine();
 			String[] args0 =arg.split(",");
 			Vector<Object> params = new Vector<Object>();
 			for (int i=0;i<args0.length;i++)
@@ -40,7 +42,7 @@ public class klientRPC {
 					params.addElement(args0[i]);
 			}
 			invoke(srv,"MojSerwer."+func,params,cb);
-			
+			}
 			
 			/*
 			XmlRpcClient srv = new XmlRpcClient("http://localhost:10001");
