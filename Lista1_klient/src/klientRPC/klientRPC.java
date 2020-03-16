@@ -8,7 +8,6 @@ import org.apache.xmlrpc.XmlRpcClient;
 public class klientRPC {
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		String func="";
 		String arg="";
 		try {
@@ -19,7 +18,6 @@ public class klientRPC {
 			String port = scan.nextLine();
 			
 			XmlRpcClient srv = new XmlRpcClient("http://"+ip+":"+port);
-			//XmlRpcClient srv = new XmlRpcClient("http://localhost:10001");
 			
 			AC cb = new AC();			
 			Object results = srv.execute("MojSerwer.shows",new Vector<Object>(0));
@@ -44,23 +42,6 @@ public class klientRPC {
 			invoke(srv,"MojSerwer."+func,params,cb);
 			
 			}
-			
-			/*
-			XmlRpcClient srv = new XmlRpcClient("http://localhost:10001");
-			Vector<Integer> params = new Vector<Integer>();
-			params.addElement(new Integer(13));
-			params.addElement(new Integer(21));
-			Object results = srv.execute("MojSerwer.echo",params);
-			int wynik=((Integer) results).intValue();
-			System.out.println(wynik);
-			AC cb = new AC();
-			Vector <Integer> params2 = new Vector<Integer>(0);
-			params2.addElement(new Integer(3000));
-			srv.executeAsync("MojSerwer.execAsy", params2, cb);
-			System.out.println("Wywolano asynchronicznie");
-			params2.addElement(new Integer(30));
-			srv.executeAsync("MojSerwer.addAsync", params2, cb);
-			*/
 			
 		}
 		catch(Exception exception)

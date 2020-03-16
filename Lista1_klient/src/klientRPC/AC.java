@@ -14,7 +14,7 @@ public class AC implements AsyncCallback {
 
 	@Override
 	public void handleResult(Object arg0, URL arg1, String arg2) {
-		System.out.println("Rezultat:"+arg0 );
+		System.out.println("Rezultat "+arg2+": "+arg0 );
 		
 	}
 
