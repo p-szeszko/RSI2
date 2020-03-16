@@ -39,10 +39,10 @@ public class serwerRPC {
 		String ans="Dostepne funkcje:";
 		String l1= "\n 1. echo: dwa argumenty int, zwraca sume intow";
 		String l2= "\n2. execAsy: jeden argument int, asynchroniczna funkcja, usypia watek na czas argumentu w ms";
-		String l3= "\n3. multiplyAsync, dwa argumenty int, mnozy dwie liczby przez siebie";
-		String l4= "\n4. intCalculate, 3 argumenty, dwa razy int oraz string. ciag operacji plus,minus,mnozenie,dzielenie ";
-		String l5= "\n5. myHello, 2 argumenty string, imie i lokalizacja jezykowa.";
-		String l6= "\n6. maxPrimeAsync, 2 argumenty int, opoznienie oraz wartosc do sprawdzenia ";	
+		String l3= "\n3. multiplyAsync, dwa argumenty int, zwraca dwie liczby pomnozone przez siebie";
+		String l4= "\n4. intCalculate, 3 argumenty, dwa razy int oraz string. ciag operacji plus,minus,mnozenie,dzielenie, zwraca string z  wynikami wszystkich operacji ";
+		String l5= "\n5. myHello, 2 argumenty string, imie i lokalizacja jezykowa, zwraca string z imieniem oraz data w podanej lokalizacji ";
+		String l6= "\n6. maxPrimeAsync, 2 argumenty int, opoznienie oraz wartosc do sprawdzenia, zwraca najwieksza liczbe pierwsza, mniejsza badz rowna podanej ";	
 		String finale = ans+l1+l2+l3+l4+l5+l6;
 		return  new String(finale);
 	}
